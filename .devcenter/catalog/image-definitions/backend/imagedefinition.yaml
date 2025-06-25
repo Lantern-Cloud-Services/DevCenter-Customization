@@ -7,7 +7,7 @@ tasks:
   ### 
   - name: winget
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/Lantern-Cloud-Services/DevCenter-Customization/refs/heads/main/.configurations/backend-eng.dsc.yaml'
+      downloadUrl: 'https://raw.githubusercontent.com/Lantern-Cloud-Services/DevCenter-Customization/refs/heads/main/.configurations/common.dsc.yaml'
   ### Run the DSC configuration for the backend engineering environment
   - name: winget
     parameters:

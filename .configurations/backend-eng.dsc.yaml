@@ -27,6 +27,7 @@ properties:
         allowPrerelease: true
       settings:
        id: Docker.DockerDesktop
+       
     ### Install Visual Sudio
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -36,6 +37,7 @@ properties:
        allowPrerelease: true
       settings:
         id: Microsoft.VisualStudio.2022.Community.Preview
+
     ### Install VS Workloads
     ### -------------------------------------
     - resource: Microsoft.VisualStudio.DSC/VSComponents
@@ -49,3 +51,23 @@ properties:
         channelId: VisualStudio.17.Preview
         components: [Microsoft.VisualStudio.Workload.NetWeb, Microsoft.VisualStudio.Workload.NetCrossPlat, aspire]
         includeRecommended: true
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Installing GitHub.GitHubDesktop
+        allowPrerelease: true
+        securityContext: current
+      settings:
+        id: "GitHub.GitHubDesktop"
+        source: winget
+      id: GitHub.GitHubDesktop
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Installing SublimeHQ.SublimeText.4
+        allowPrerelease: true
+        securityContext: current
+      settings:
+        id: "SublimeHQ.SublimeText.4"
+        source: winget
+      id: SublimeHQ.SublimeText.4

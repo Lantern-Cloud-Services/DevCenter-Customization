@@ -5,9 +5,50 @@ properties:
   ### RESOURCES: System Configuration
   ########################################
   resources:
+    # Creates a new Dev Drive
+    ### -------------------------------------
+    - resource: Disk
+      id: DevDrive1
+      directives:
+        module: StorageDsc
+        allowPrerelease: true
+      settings:
+        DiskId: '0'
+        DiskIdType: 'Number'
+        DriveLetter: 'Z'
+        FSLabel: 'Dev Drive 1'
+        DevDrive: true
+        AllowDestructive: true
+        FSFormat: 'ReFS'
+        Size: '50Gb'
+
     ########################################
     ### Install CLIs, SDKs & Tools
     ########################################
+    ### Install Git
+    ### -------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: git
+      directives:
+        allowPrerelease: true
+      settings:
+        id: Microsoft.Git
+
+    ### Configure Git to use Default WAM account
+    ### -------------------------------------
+    - resource: PSDscResources/Script
+      dependsOn:
+        - git
+      directives:
+        description: Configure Git to use Default WAM account
+      settings:
+        SetScript: |
+          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
+          SET GCM_MSAUTH_USEDEFAULTACCOUNT="true"
+          git config --global credential.msauthUseDefaultAccount true
+        GetScript: return $false
+        TestScript: return $false
+
     ### Install Visual Studio Code
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -19,6 +60,7 @@ properties:
       settings:
         id: Microsoft.VisualStudioCode
         source: winget
+
 
     ### Install Docker Desktop
     ### -------------------------------------

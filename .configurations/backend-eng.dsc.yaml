@@ -61,6 +61,6 @@ properties:
         description: Configure Git to use Default WAM account
       settings:
 #        SetScript: git clone --quiet https://github.com/contoso-co/eshop.git "Z:\workspaces\eshop"
-        SetScript: git clone --quiet https://github.com/contoso-co/eshop.git "Z:\workspaces\eshop"          
+        SetScript: git clone --quiet https://github.com/Lantern-Cloud-Services/DevCenter-Customization.git "Z:\workspaces\devcenter-customization"          
         GetScript: return $false
         TestScript: return $false

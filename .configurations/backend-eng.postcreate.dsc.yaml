@@ -5,7 +5,7 @@ properties:
   ### RESOURCES: System Configuration
   ########################################
   resources:
-    ### Install Postman
+    ### Install Insomnia
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: Insomnia

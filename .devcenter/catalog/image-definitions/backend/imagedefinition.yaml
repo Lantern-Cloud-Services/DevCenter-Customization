@@ -37,7 +37,7 @@ tasks:
     description: Install Node.js.18
     parameters:
       package: OpenJS.NodeJS
-      version: "18.19.0"
+      version: "18.0.0"
 
     ### Install Insomnia
     ### -------------------------------------

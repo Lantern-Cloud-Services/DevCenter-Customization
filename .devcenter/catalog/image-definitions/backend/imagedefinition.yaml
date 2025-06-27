@@ -34,7 +34,7 @@ tasks:
 
   # install Node/npm
   - name: winget
-    description: Install Node.js
+    description: Install Node.js.18
     parameters:
       package: OpenJS.NodeJS
 

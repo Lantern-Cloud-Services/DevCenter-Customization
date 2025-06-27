@@ -18,13 +18,6 @@ tasks:
 #    parameters:
 #      configurationFile: 'z:\workspaces\eshop\.configurations\backend-eng.postcreate.dsc.yaml'
 
-userTasks:
-  # install Node/npm
-  - name: winget
-    description: Install Node.js
-    parameters:
-      package: OpenJS.NodeJS.18
-
   ### Install Visual Studio Code
   ### -------------------------------------
   - name: winget
@@ -38,6 +31,12 @@ userTasks:
     description: Install Sublime Text
     parameters:
       package:  SublimeHQ.SublimeText.4
+
+  # install Node/npm
+  - name: winget
+    description: Install Node.js
+    parameters:
+      package: OpenJS.NodeJS
 
     ### Install Insomnia
     ### -------------------------------------

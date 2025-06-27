@@ -25,9 +25,22 @@ tasks:
     parameters:
       package:  Microsoft.VisualStudioCode
 
+  # install Node/npm
+  - name: winget
+    description: Install Node.js
+    parameters:
+      package: OpenJS.NodeJS.18
+  
   ### Install Sublime Text
   ### -------------------------------------
   - name: winget
     description: Install Sublime Text
     parameters:
-      package:  SublimeHQ.SublimeText.4
+      package:  SublimeHQ.SublimeText
+
+    ### Install Insomnia
+    ### -------------------------------------
+  - name: winget
+    description: Install Insomnia
+    parameters:
+      package:  Insomnia.Insomnia

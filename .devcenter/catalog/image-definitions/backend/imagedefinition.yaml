@@ -40,7 +40,7 @@ tasks:
 
     ### Install Insomnia
     ### -------------------------------------
-  - name: winget
-    description: Install Insomnia
-    parameters:
-      package:  Insomnia.Insomnia
+#  - name: winget
+#    description: Install Insomnia
+#    parameters:
+#      package:  Insomnia.Insomnia

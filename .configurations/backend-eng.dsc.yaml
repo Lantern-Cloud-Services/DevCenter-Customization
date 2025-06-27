@@ -36,16 +36,25 @@ properties:
 
     ### Configure Git to use Default WAM account
     ### -------------------------------------
+#    - resource: PSDscResources/Script
+#      dependsOn:
+#        - git
+#      directives:
+#        description: Configure Git to use Default WAM account
+#      settings:
+#        SetScript: |
+#          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
+#          SET GCM_MSAUTH_USEDEFAULTACCOUNT="true"
+#          git config --global credential.msauthUseDefaultAccount true
+#        GetScript: return $false
+#        TestScript: return $false
+
+    # Clone the Git repository
     - resource: PSDscResources/Script
-      dependsOn:
-        - git
       directives:
-        description: Configure Git to use Default WAM account
+        description: Clone target repository
       settings:
-        SetScript: |
-          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
-          SET GCM_MSAUTH_USEDEFAULTACCOUNT="true"
-          git config --global credential.msauthUseDefaultAccount true
+        SetScript: git clone --quiet https://github.com/Lantern-Cloud-Services/DevCenter-Customization.git "Z:\workspaces\devcenter-customization"          
         GetScript: return $false
         TestScript: return $false
 
@@ -63,45 +72,35 @@ properties:
 
     ### Install Docker Desktop
     ### -------------------------------------
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Install Docker Desktop
-        allowPrerelease: false
-      settings:
-        id: "Docker.DockerDesktop"
-        source: winget
-      id: Docker.DockerDesktop
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        description: Install Docker Desktop
+#        allowPrerelease: false
+#      settings:
+#        id: "Docker.DockerDesktop"
+#        source: winget
+#      id: Docker.DockerDesktop
       
     ### Install GitHub Desktop
     ### -------------------------------------
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Installing GitHub.GitHubDesktop
-        allowPrerelease: false
-        securityContext: current
-      settings:
-        id: "GitHub.GitHubDesktop"
-        source: winget
-      id: GitHub.GitHubDesktop
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        description: Installing GitHub.GitHubDesktop
+#        allowPrerelease: false
+#        securityContext: current
+#      settings:
+#        id: "GitHub.GitHubDesktop"
+#        source: winget
+#      id: GitHub.GitHubDesktop
 
     ### Install Sublime Text
     ### -------------------------------------
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Installing SublimeHQ.SublimeText.4
-        allowPrerelease: false
-        securityContext: current
-      settings:
-        id: "SublimeHQ.SublimeText.4"
-        source: winget
-      id: SublimeHQ.SublimeText.4
-
-    # Clone the Git repository
-    - resource: PSDscResources/Script
-      directives:
-        description: Configure Git to use Default WAM account
-      settings:
-#        SetScript: git clone --quiet https://github.com/contoso-co/eshop.git "Z:\workspaces\eshop"
-        SetScript: git clone --quiet https://github.com/Lantern-Cloud-Services/DevCenter-Customization.git "Z:\workspaces\devcenter-customization"          
-        GetScript: return $false
-        TestScript: return $false
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        description: Installing SublimeHQ.SublimeText.4
+#        allowPrerelease: false
+#        securityContext: current
+#      settings:
+#        id: "SublimeHQ.SublimeText.4"
+#        source: winget
+#      id: SublimeHQ.SublimeText.4

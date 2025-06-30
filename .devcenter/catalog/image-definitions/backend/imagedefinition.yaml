@@ -38,10 +38,3 @@ tasks:
     parameters:
       package: OpenJS.NodeJS
       version: "18.0.0"
-
-    ### Install Insomnia
-    ### -------------------------------------
-#  - name: winget
-#    description: Install Insomnia
-#    parameters:
-#      package:  Insomnia.Insomnia

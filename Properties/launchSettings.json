@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DevCenter_Customization": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7039",
+      "launchBrowser": false
+    }
+  }
+}
